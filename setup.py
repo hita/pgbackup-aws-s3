@@ -11,6 +11,13 @@ setup(
 	description = 'A utility for backing up PostgreSQL databases.',
 	long_description = long_description,
 	long_description_content_type = 'text/markdown',
-	url = 'https://github.com/hita/pgbackup',
-	packages = find_packages('src')
+	url = 'https://github.com/hita/pgbackup_aws_s3',
+	packages = find_packages('src'),
+	package_dir={'':'src'},
+	install_requires=['boto3'],
+	entry_points={
+		'console_scripts': [
+			'pgbackup=pgbackup.cli:main'
+		],
+	}
 )
